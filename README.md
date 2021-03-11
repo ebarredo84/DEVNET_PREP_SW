@@ -1,5 +1,7 @@
 # DEVNET_PREP_SW
-I created this software in order to prepare myself for DEVNET CERTIFICATIONS. Right now it only works for ENAUTO 300-435 but the idea is to write the code for the others DEVNET CERTIFICATION EXAMS also.
+I created this software in order to prepare myself for ENAUTO exam, but I already made the structure to add the code for the others DEVNET EXAMS. Right now it only works for ENAUTO 300-435 but the idea is to write the code for the others DEVNET CERTIFICATION EXAMS also.
+
+It has a GUI made with TKINTER libraries to make easier and nicer to practice.
 
 This DEVNET PREPARATION SOFTWARE starts by running devnet_prep_sw_ebo.py file. It should open a window which ask for which exam do you wish to practice. For now, its only available ENAUTO 300-435 (option 1):
 1) ENAUTO 300-435
@@ -82,5 +84,7 @@ Another example, the steps to ask and print all the interfaces of the CSR1000V u
 7) press "back" option.
 8) write 3 and press "select" to ask for interfaces (GET INTERFACE LIST).
 You should wait for a moment and then the request will be shown in the text box of the GUI.
+
+This softwware is not completed yet, but I beleave it can be very helpfull in order to make your own code and practice for ENAUTO exam or maybe for one of the others DEVNET exam.
 
 Regards,
