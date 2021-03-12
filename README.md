@@ -19,16 +19,16 @@ Then it should open a new window with 4 options:
 
 All of them ask for which SANBOX do you want to interact with: 
 1) IOS XE
-  1) SANDBOX IOS XE 1    (host="ios-xe-mgmt.cisco.com")
+    1) SANDBOX IOS XE 1    (host="ios-xe-mgmt.cisco.com")
 2) DNA CENTER
-  1) SANDBOX DNAC2     (https://sandboxdnac2.cisco.com)   "USER ESTE MEJOR"
-  2) SANDBOX DNAC      (https://sandboxdnac.cisco.com)    "ESTÁ MIGRANDO AL 2"
+    1) SANDBOX DNAC2     (https://sandboxdnac2.cisco.com)   "USER ESTE MEJOR"
+    2) SANDBOX DNAC      (https://sandboxdnac.cisco.com)    "ESTÁ MIGRANDO AL 2"
 3) SD WAN
-  1) SANDBOX SDWAN1    (https://sandbox-sdwan-1.cisco.com:443/)   "USAR ESTE"
-  2) SANDBOX SDWAN     (https://sandboxsdwan.cisco.com:8443/)     "ESTE TIENE PROBLEMAS DE AUTHENTICACIÓN"
+    1) SANDBOX SDWAN1    (https://sandbox-sdwan-1.cisco.com:443/)   "USAR ESTE"
+    2) SANDBOX SDWAN     (https://sandboxsdwan.cisco.com:8443/)     "ESTE TIENE PROBLEMAS DE AUTHENTICACIÓN"
 4) MERAKI
-  1) SANDBOX MERAKI1    (https://api.meraki.com/api/v1/)
-  2) SANDBOX MERAKI     (https://api.meraki.com/api/v0/) ***
+    1) SANDBOX MERAKI1    (https://api.meraki.com/api/v1/)
+    2) SANDBOX MERAKI     (https://api.meraki.com/api/v0/) ***
  
 Please select always the first one. The second one its not really working or has some problems. I leave it this way in order to easily implement a second SANDBOX (RESERVED for example) o an equipment at your own if you have one.
 
@@ -40,23 +40,26 @@ Each option has more menus and requests to practice. These 4 options interact di
 
 I implemented this sofware with a MCV (model-controller view) pattern. I separeted the software in the following way:
 
-view:
-enauto/enauto_gui_dnac_menus_ebo: has only DNA MENUS
-enauto/enauto_gui_iosxe_menus_ebo: has only IOS XE MENUS
-enauto/enauto_gui_meraki_menus_ebo: has only MERAKI MENUS
-enauto/enauto_gui_sdwan_menus_ebo: has only SDWAN MENUS
-enauto/enauto_gui_class_ebo: has the window and the methods which interact with the menus and requests (controller part).
-devnet_gui_functions_ebo: has a secundary window that is used to ask for parameters and also has PRINTS functions that are used to display the requests.
+VIEW:
 
-controller:
-enauto/enauto_functions_dnac_ebo: has all the request for dna center
-enauto/enauto_functions_iosxe_ebo: has all the request for IOS XE
-enauto/enauto_functions_meraki_ebo: has all the request for meraki
-enauto/enauto_functions_sdwan_ebo: has all the request for SDWAN
-enauto/enauto_functions_interface_ebo: has the "interface" between controller and model part. All the credentials are here.
+1) enauto/enauto_gui_dnac_menus_ebo. Has only DNA MENUS
+2) enauto/enauto_gui_iosxe_menus_ebo. Has only IOS XE MENUS
+3) enauto/enauto_gui_meraki_menus_ebo. Has only MERAKI MENUS
+4) enauto/enauto_gui_sdwan_menus_ebo. Has only SDWAN MENUS
+5) enauto/enauto_gui_class_ebo. Has the window and the methods which interact with the menus and requests (controller part).
+6) devnet_gui_functions_ebo. Has a secundary window that is used to ask for parameters and also has PRINTS functions that are used to display the requests.
 
-model:
-devnet_model_functions_ebo: has ncclient and requests python functions that are used for all the software.
+CONTROLLER:
+
+1) enauto/enauto_functions_dnac_ebo: has all the request for dna center
+2) enauto/enauto_functions_iosxe_ebo: has all the request for IOS XE
+3) enauto/enauto_functions_meraki_ebo: has all the request for meraki
+4) enauto/enauto_functions_sdwan_ebo: has all the request for SDWAN
+5) enauto/enauto_functions_interface_ebo: has the "interface" between controller and model part. All the credentials are here.
+
+MODEL:
+
+1) devnet_model_functions_ebo: has ncclient and requests python functions that are used for all the software.
 
 I made it this way in order to be easy to add a new function for each sandbox. For example, if you want to add the option to create a vlan in IOS XE you have to:
 1) add that option in IOS XE MENU (in enauto/enauto_gui_iosxe_menus_ebo)
