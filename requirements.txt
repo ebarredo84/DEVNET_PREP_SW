@@ -1,0 +1,4 @@
+In order to run this software you need to install the followings Python libraries:
+1) requests
+2) ncclient
+3) xmltodict
